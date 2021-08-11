@@ -1,0 +1,544 @@
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+.login-container {
+  width: 100%;
+  height: 106vh;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.navbar-container {
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px 2%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar-container * {
+  margin: 1rem;
+}
+
+.navbar-container a {
+  color: white;
+  padding: 8px 17px;
+  border-radius: 3px;
+  font-family: 'base';
+  cursor: pointer;
+  display: none;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+.imageWrapper img {
+  z-index: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  min-height: 100%;
+}
+
+.imageWrapper .backgroundImage-container {
+  z-index: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.loginBody-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.loginBody-container .loginBody {
+  padding: 0px 70px 130px 70px;
+  min-height: 660px;
+  width: 30%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 450px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+}
+
+.loginForm {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.loginForm div {
+  position: relative;
+}
+
+.loginForm h2 {
+  font-size: 2rem;
+  line-height: 60px;
+}
+
+.loginForm .login-inputContainer {
+  position: relative;
+}
+
+.loginForm .login-inputContainer input {
+  border: 0;
+  height: 50px;
+  background-color: #333;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 6px;
+  color: white;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.loginForm .login-inputContainer #passwordInput {
+  padding-right: 20%;
+}
+
+.loginForm .login-inputContainer input:focus {
+  outline: none;
+  background-color: #4d4d4d;
+}
+
+.loginForm .login-inputContainer input:focus ~ p {
+  display: inline;
+}
+
+.loginForm .login-inputContainer label {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  position: absolute;
+  width: 100%;
+  top: 42%;
+  left: 6%;
+  color: #8c8c8c;
+}
+
+.loginForm .login-inputContainer p {
+  font-size: 0.9rem;
+  color: #8c8c8c;
+  top: 20%;
+  right: 4%;
+  position: absolute;
+}
+
+.loginForm .login-inputContainer p:hover {
+  cursor: pointer;
+}
+
+.loginForm .formError {
+  font-size: 0.88rem;
+  color: #e87c03;
+  margin-top: 5px;
+}
+
+.loginForm .login-inputContainer {
+  position: relative;
+}
+
+.loginForm .login-inputError:after {
+  content: '';
+  width: 100%;
+  height: 10px;
+  border-bottom: 2px solid #e87c03;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  position: absolute;
+  height: 1;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.loginForm *:not(:last-child):not(.formError) {
+  margin-top: 10px;
+}
+
+.loginForm button {
+  width: 100%;
+  margin-top: 30px;
+  height: 50px;
+  background: #e50914;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: 700;
+  position: relative;
+}
+
+.loginForm button:hover {
+  cursor: pointer;
+}
+
+.loginForm .send-inputError {
+  background-color: #e87c03;
+  border-radius: 4px;
+  font-size: .95rem;
+  padding: 5px 15px 5px 15px;
+}
+
+.loginForm .send-inputError a {
+  text-decoration: underline;
+}
+
+.loginForm .send-inputError a:hover {
+  cursor: pointer;
+}
+
+.awaitLoad-login {
+  background-color: #f95b63 !important;
+  color: #f95b63 !important;
+}
+
+.awaitLoad-login:after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 15px);
+  color: white;
+  left: calc(50% - 15px);
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  background: url(../assets/basic-spinner.png);
+  background-size: contain;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-animation: rotateLoad 1s linear infinite;
+          animation: rotateLoad 1s linear infinite;
+}
+
+.login-formAddons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #9a9a9a;
+  margin-top: 12px;
+  margin-bottom: 40px;
+}
+
+.login-formAddons .loginCheck {
+  position: relative;
+}
+
+.login-formAddons .loginCheck * {
+  display: inline;
+  font-size: 0.9rem;
+}
+
+.login-formAddons .loginCheck p {
+  padding-left: 20px;
+  position: relative;
+}
+
+.login-formAddons .loginCheck .rememberChecked::after {
+  position: absolute;
+  left: 2.5%;
+  top: 10%;
+  color: black;
+  content: '\002714';
+}
+
+.login-formAddons .loginCheck .rememberChecked::before {
+  position: absolute;
+  left: 1%;
+  top: 20%;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  z-index: 0;
+  background-color: #737373;
+  content: '';
+}
+
+.login-formAddons .loginCheck input {
+  position: absolute;
+  opacity: 0;
+  top: 25%;
+}
+
+.login-formAddons .loginCheck::before {
+  width: 14px;
+  height: 14px;
+  content: "";
+  background-color: white;
+  position: absolute;
+  z-index: 0;
+  border-radius: 2px;
+  top: 24%;
+  left: 1%;
+}
+
+.login-formAddons a {
+  font-size: 0.8rem;
+}
+
+.login-formAddons a:hover {
+  border-bottom: 0.1px solid #b3b3b3;
+  cursor: pointer;
+}
+
+.login-extraAddons div {
+  margin-bottom: 11px;
+}
+
+.login-extraAddons div * {
+  display: inline;
+}
+
+.login-extraAddons div *:not(.loginAddon-clickable) {
+  color: gray;
+}
+
+.login-extraAddons div h4 {
+  font-weight: 500;
+}
+
+.login-extraAddons div p {
+  font-size: 0.8rem;
+}
+
+.login-extraAddons div a.loginAddon-clickable:hover {
+  border-bottom: 1px solid white;
+}
+
+.login-extraAddons div label {
+  font-size: 0.8rem;
+  color: #0071eb;
+  font-weight: 500;
+}
+
+.login-extraAddons div label:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #0071eb;
+}
+
+.login-extraAddons .addons-1 a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-extraAddons .addons-1 a:hover {
+  cursor: pointer;
+}
+
+.login-extraAddons .addons-1 img {
+  margin-right: 10px;
+  width: 21px;
+  height: 21px;
+}
+
+.login-extraAddons .addons-2 a {
+  color: white;
+  text-decoration: none;
+}
+
+.login-extraAddons .loginAddon-clickable:hover {
+  cursor: pointer;
+}
+
+.login-inputFocused {
+  top: 23% !important;
+  font-size: 0.7rem;
+}
+
+.loginFooter-container {
+  margin-top: 50px;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  position: relative;
+  z-index: 3;
+  bottom: 0px;
+  color: gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.loginFooter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 55%;
+}
+
+.loginFooter *:not(li):not(ul):hover {
+  border-bottom: 1px solid gray;
+  cursor: pointer;
+}
+
+.loginFooter h2 {
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-size: 1rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: inline-block;
+}
+
+.loginFooter ul {
+  font-size: .9rem;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.loginFooter ul .loginFooter-listItem {
+  margin-bottom: 20px;
+  width: 25%;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 720px) {
+  .imageWrapper-login {
+    height: auto !important;
+  }
+  .login-container {
+    height: 100%;
+  }
+  .navbar-container {
+    background-color: black;
+    padding: 12px 0px 0px 0px;
+  }
+  .navbar-container svg {
+    height: 24px;
+    width: 30%;
+  }
+  .loginBody-container .loginBody {
+    width: 100%;
+    padding: 0px 20px 90px 20px;
+    min-height: 500px;
+    border-bottom: 1px solid #b3b3b3;
+    background-color: black;
+  }
+  .loginBody-container .loginBody h2 {
+    margin-top: 0;
+  }
+  .loginBody-container .loginCheck::before {
+    top: 20%;
+  }
+  .loginBody-container .login-extraAddons {
+    width: 100%;
+  }
+  .loginFooter-container {
+    margin-top: 0px;
+  }
+  .loginFooter {
+    width: 100%;
+    padding-left: 25px;
+  }
+  .loginFooter ul .loginFooter-listItem {
+    width: 50%;
+  }
+  .loginFooter-login {
+    background-color: black;
+  }
+}
+/*# sourceMappingURL=Login-Styles.css.map */

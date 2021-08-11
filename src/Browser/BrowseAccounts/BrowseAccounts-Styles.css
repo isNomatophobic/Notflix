@@ -1,0 +1,674 @@
+.browseAccounts-container {
+  min-height: 100vh;
+  background-color: #141414;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.browseAccounts-NavbarContainer {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0));
+  height: 68px;
+  padding: 0px 4%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.browseAccounts-NavbarContainer svg {
+  fill: red;
+  width: 93px;
+  height: 38vh;
+}
+
+.browseAccounts-BodyContainer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 100px 46px;
+}
+
+.createProfile-BodyContainer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 100px 50px;
+}
+
+.browseAccounts-Body {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 146px;
+}
+
+.browseAccounts-Body h2 {
+  font-size: 3.5vw;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.browseAccounts-Body a {
+  color: grey;
+  border: 1px solid grey;
+  font-size: 1.2vw;
+  letter-spacing: 2px;
+  padding: 1vh 2vw;
+}
+
+.browseAccounts-Body a:hover {
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.browseAccounts-Body .a-manage {
+  font-weight: 700;
+  color: black;
+  background-color: white;
+}
+
+.browseAccounts-Body .a-manage:hover {
+  background-color: red;
+  color: white;
+  border: 1px solid transparent;
+}
+
+.entrance {
+  -webkit-animation: entrance 0.3s;
+          animation: entrance 0.3s;
+}
+
+@-webkit-keyframes entrance {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateZ(1100px);
+            transform: translateZ(1100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+  }
+}
+
+@keyframes entrance {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateZ(1100px);
+            transform: translateZ(1100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+  }
+}
+
+.browseAccounts-ProfilesContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2vw;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.account-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: grey;
+}
+
+.account-container .addAccount:hover {
+  background-color: white;
+  border: none;
+  outline: none;
+}
+
+.account-container > div {
+  position: relative;
+  border-radius: 4px;
+  height: 10vw;
+  width: 10vw;
+  max-height: 200px;
+  max-width: 200px;
+  min-height: 84px;
+  min-width: 84px;
+  border: 4px solid transparent;
+}
+
+.account-container img {
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  outline: null;
+}
+
+.account-container .account-manage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.account-container svg {
+  width: 100%;
+  height: 25%;
+  color: white;
+  z-index: 3;
+}
+
+.account-container p {
+  margin-top: 6px;
+  font-size: 1.3vw;
+}
+
+.account-container:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.account-container:hover > div {
+  background-color: white;
+  border: 4px solid white;
+  color: white;
+}
+
+.account-imgManage:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.account-imgManage:hover > div {
+  background-color: grey !important;
+  border: 4px solid grey;
+  color: white;
+}
+
+.createProfile-body * {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.createProfile-body h2 {
+  color: white;
+  font-size: 4vw;
+  font-weight: 500;
+  margin: 0;
+}
+
+.createProfile-body h4 {
+  margin: 12px 0px;
+  color: #666666;
+  font-weight: 500;
+  font-size: 1.5vw;
+}
+
+.createProfile-body > div {
+  position: relative;
+  border-top: 1px solid #666666;
+  border-bottom: 1px solid #666666;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  padding: 15px 0px;
+  width: 100%;
+}
+
+.createProfile-body button {
+  margin-top: 20px;
+  margin-right: 20px;
+  padding: .75vw 1.75vw;
+  font-size: 1vw;
+  border-radius: 0px;
+  border: 0;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+.createProfile-body button:hover {
+  cursor: pointer;
+}
+
+.createProfile-body .cancel {
+  background-color: transparent;
+  border: 1px solid #666666;
+  color: #666666;
+}
+
+.createProfile-body .cancel:hover {
+  border: 1px solid white;
+  color: white;
+}
+
+.createProfile-body .continue {
+  font-weight: 600;
+}
+
+.createProfile-body .continue:hover {
+  background-color: #E50914;
+  color: white;
+}
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+.createProfile-formContainer {
+  position: relative;
+}
+
+.createProfile-formContainer .imgContainer {
+  width: 10vw;
+  border-radius: 4px;
+  margin-right: 20px;
+  height: 8vw;
+  width: 8vw;
+  max-height: 180px;
+  max-width: 180px;
+  min-height: 80px;
+  min-width: 80px;
+}
+
+.createProfile-formContainer .imgContainer img {
+  border-radius: 4px;
+}
+
+.createProfile-formContainer .inputText {
+  background-color: #666666;
+  border: none;
+  color: #cdcdcd;
+  font-size: 1.5vw;
+  padding: 3px;
+  padding-left: 10px;
+  width: 25vw;
+  margin-right: 10px;
+}
+
+.createProfile-formContainer .radioInput {
+  opacity: 0;
+  margin-right: 5px;
+  width: 2.5vw;
+}
+
+.createProfile-formContainer .kidsOption {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 0px;
+}
+
+.createProfile-formContainer .kidsOption:after {
+  content: "";
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  left: 0px;
+  border: 1px solid #333333;
+  z-index: 3;
+}
+
+.createProfile-formContainer .checked:before {
+  content: "\2713";
+  color: #999999;
+  position: absolute;
+  font-size: 1.5vw;
+  left: 8%;
+}
+
+.createProfile-formContainer p {
+  margin: 0;
+  font-size: 1.4vw;
+  font-weight: 600;
+}
+
+.changeProfile-body h2 {
+  margin-bottom: 10px;
+  font-size: 1.9vw;
+  text-align: center;
+  font-weight: 600;
+}
+
+.changeProfile-formContainer {
+  -webkit-box-pack: space-evenly !important;
+      -ms-flex-pack: space-evenly !important;
+          justify-content: space-evenly !important;
+  padding: 3.5vw 0px !important;
+}
+
+.changeProfile-formContainer svg {
+  width: 1.2vw;
+  margin: 0px 10px;
+}
+
+.changeProfile-formContainer p {
+  font-size: 1vw;
+  text-align: center;
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+.changeProfile-formContainer .imgContainer {
+  height: 10vw;
+  width: 10vw;
+  max-height: 120px;
+  max-width: 120px;
+  margin-right: 0;
+}
+
+.changeProfile-formContainer .imgContainer img {
+  border-radius: 4px;
+}
+
+.changeProfile-formContainer .imgContainer:hover {
+  cursor: auto;
+}
+
+.chooseImage-BodyContainer {
+  padding: 0px 40px;
+  overflow-y: auto;
+}
+
+.chooseImage-accountInfo {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.chooseImage-accountInfo * {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.chooseImage-accountInfo .titleContainer {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  padding-left: 6vw;
+}
+
+.chooseImage-accountInfo .titleContainer * {
+  margin: 0;
+}
+
+.chooseImage-accountInfo .titleContainer span {
+  display: inline-block;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  position: absolute;
+  width: 3vw;
+  height: 3vw;
+  left: 0;
+  top: 20%;
+  z-index: 3;
+}
+
+.chooseImage-accountInfo .titleContainer span:hover {
+  cursor: pointer;
+}
+
+.chooseImage-accountInfo .titleContainer h3 {
+  margin-bottom: 2px;
+  font-size: 2.5vw;
+}
+
+.chooseImage-accountInfo .titleContainer h4 {
+  font-size: 1.8vw;
+}
+
+.chooseImage-accountInfo .titleContainer::before {
+  content: '\2794';
+  display: inline-block;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  position: absolute;
+  font-size: 3vw;
+  left: 0;
+  top: 20%;
+}
+
+.chooseImage-accountInfo .profileInfo {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.chooseImage-accountInfo .profileInfo .imgContainer {
+  height: 6vw;
+  width: 6vw;
+  max-height: 90px;
+  max-width: 90px;
+  min-height: 40px;
+  min-width: 40px;
+  border-radius: 4px;
+  margin-left: 20px;
+}
+
+.chooseImage-accountInfo .profileInfo .imgContainer img {
+  border-radius: 4px;
+}
+
+.chooseImage-accountInfo .profileInfo h5 {
+  font-size: 2vw;
+  margin: 0;
+  font-weight: 500;
+}
+
+.chooseImage-imagesContainer {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  margin: 50px -10px 0px -10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chooseImage-imagesContainer div {
+  max-height: 200px;
+  max-width: 200px;
+  min-height: 40px;
+  min-width: 40px;
+  height: 13.66vw;
+  width: 13.66vw;
+  border-radius: 4px;
+  outline-offset: 2px solid transparent;
+}
+
+.chooseImage-imagesContainer div img {
+  border-radius: 4px;
+}
+
+.chooseImage-imagesContainer div:hover {
+  outline: 2px solid white;
+}
+
+@media (max-width: 800px) {
+  .browseAccounts-Body h2 {
+    font-size: 30px;
+  }
+  .browseAccounts-Body a {
+    font-size: 14px;
+  }
+  .browseAccounts-Body .a-manage {
+    padding: 8px 20px;
+  }
+  .account-container p {
+    font-size: 14px;
+  }
+  .createProfile-body h2 {
+    font-size: 40px;
+  }
+  .createProfile-body h4 {
+    font-size: 12px;
+  }
+  .createProfile-body button {
+    padding: 8px 15px;
+    font-size: 16px;
+  }
+  .createProfile-formContainer svg {
+    width: 12px;
+    margin: 0px 10px;
+  }
+  .createProfile-formContainer .inputText {
+    font-size: 12px;
+    width: 200px;
+  }
+  .createProfile-formContainer .radioInput {
+    opacity: 0;
+    width: 20px;
+  }
+  .createProfile-formContainer .kidsOption p {
+    font-size: 14px;
+  }
+  .createProfile-formContainer .kidsOption:after {
+    width: 20px;
+    height: 20px;
+  }
+  .createProfile-formContainer .checked:before {
+    font-size: 12px;
+  }
+  .chooseImage-accountInfo {
+    margin: 0px -20px;
+  }
+  .chooseImage-accountInfo .titleContainer {
+    padding-left: 30px;
+  }
+  .chooseImage-accountInfo .titleContainer h3 {
+    font-size: 18px;
+  }
+  .chooseImage-accountInfo .titleContainer h4 {
+    font-size: 14px;
+  }
+  .chooseImage-accountInfo .titleContainer span {
+    width: 30px;
+    height: 30px;
+  }
+  .chooseImage-accountInfo .titleContainer::before {
+    content: '\2794';
+    display: inline-block;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    position: absolute;
+    font-size: 22px;
+    left: 0;
+    top: 20%;
+  }
+  .chooseImage-accountInfo .profileInfo h5 {
+    font-size: 14px;
+  }
+}
+
+@media (orientation: landscape) {
+  .browseAccounts-container {
+    max-height: 100vh;
+    overflow: hidden;
+  }
+  .browseAccounts-BodyContainer {
+    padding: 0px 40px;
+  }
+  .createProfile-BodyContainer {
+    padding: 0px 40px;
+  }
+}
+/*# sourceMappingURL=BrowseAccounts-Styles.css.map */

@@ -1,0 +1,530 @@
+.browseAccounts-container{
+    min-height: 100vh;
+    background-color: #141414;
+    display: flex;
+    flex-direction: column;
+}
+.browseAccounts-NavbarContainer{
+    background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
+    height: 68px;
+    padding:0px 4%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    svg{
+        fill:red;
+        width: 93px;
+        height: 38vh;
+    }
+}
+.browseAccounts-BodyContainer{
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:100px 46px;
+}
+.createProfile-BodyContainer{
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:100px 50px;
+}
+.browseAccounts-Body{
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 146px;
+    h2{
+        font-size: 3.5vw;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+    a{
+        color:grey;
+        border: 1px solid grey;
+        font-size:1.2vw;
+        letter-spacing: 2px;
+        padding:1vh 2vw;
+    }
+    a:hover{
+        color:white;
+        border:1px solid white;
+        cursor: pointer;
+    }
+    .a-manage{
+        font-weight: 700;
+        color:black;
+        background-color: white;
+    }
+    .a-manage:hover{
+        background-color: red;
+        color:white;
+        border:1px solid transparent;
+    }
+}
+.entrance{
+    animation:entrance 0.3s;
+}
+@keyframes entrance{
+    0%{
+        opacity: 0;
+        transform: translateZ(1100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateZ(0);
+
+
+    }
+}
+.browseAccounts-ProfilesContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:2vw;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+.account-container{
+    .addAccount:hover{
+        background-color: white;
+        border:none;
+        outline: none;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color:grey;
+    >div{
+        position: relative;
+        border-radius: 4px;
+        height: 10vw;
+        width: 10vw;
+        max-height: 200px;
+        max-width: 200px;
+        min-height: 84px;
+        min-width: 84px;
+        border:4px solid transparent;
+    }
+    img{
+        border-radius: 4px;
+        
+        width: 100%;
+        height: 100%;
+        outline:null;
+    }
+    .account-manage{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(black,0.3);
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    svg{
+        width: 100%;
+        height: 25%;
+        color:white;
+        z-index: 3;
+    }
+    p{
+        margin-top: 6px;
+        font-size: 1.3vw;
+    }
+    &:hover{
+        color: white;
+        cursor: pointer;
+        >div{
+            background-color: white;
+            border:4px solid white;
+            color:white;
+        }
+    }
+}
+.account-imgManage{
+    &:hover{
+        color: white;
+        cursor: pointer;
+        >div{
+            background-color: grey !important;
+            border:4px solid grey;
+            color:white;
+        }
+    }
+}
+.createProfile-body{
+    *{
+        transition: all 0.3s ease;
+    }
+    h2{
+        color:white;
+        font-size: 4vw;
+        font-weight: 500;
+        margin:0;
+    }
+    h4{
+        margin:12px 0px;
+        color:#666666;
+        font-weight: 500;
+        font-size: 1.5vw;
+
+
+    }
+    >div{
+        position: relative;
+        border-top:1px solid #666666;
+        border-bottom:1px solid #666666;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        padding:15px 0px;
+        width: 100%;
+    }
+    button{
+        margin-top:20px;
+        margin-right: 20px;
+        padding:.75vw 1.75vw;
+        font-size: 1vw;
+        border-radius: 0px;
+        border:0;
+        letter-spacing: 2px;
+        font-weight: 500;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+
+    .cancel{
+        background-color: transparent;
+        border:1px solid #666666;
+        color:#666666;
+    }
+    .cancel:hover{
+        border:1px solid white;
+        color:white;
+    }
+    .continue{
+        font-weight: 600;
+    }
+    .continue:hover{
+        background-color: #E50914;
+        color:white;
+    }
+}
+.pointer:hover{
+    cursor: pointer;
+}
+.createProfile-formContainer{
+    position: relative;
+    .imgContainer{
+        width: 10vw;
+        border-radius: 4px;
+        margin-right: 20px;
+        height: 8vw;
+        width: 8vw;
+        max-height: 180px;
+        max-width: 180px;
+        min-height: 80px;
+        min-width: 80px;
+        img{
+            border-radius: 4px;
+        }
+    }
+    .inputText{
+        background-color: #666666;
+        border: none;
+        color:lighten($color: grey, $amount: 30%);
+        font-size: 1.5vw;
+        padding:3px;
+        padding-left: 10px;
+        width: 25vw;
+        margin-right: 10px;
+    }
+    .radioInput{
+        opacity: 0;
+        margin-right: 5px;
+        width: 2.5vw;
+    }
+    .kidsOption{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:5px 0px;
+    }
+    .kidsOption:after{
+        content:"";
+        position: absolute;
+        width: 2vw;
+        height: 2vw;
+        left:0px;
+        border:1px solid #333333;
+        z-index: 3;
+    }
+    .checked:before{
+        content:"\2713";
+        color:#999999;
+        position: absolute;
+        font-size: 1.5vw;
+        left:8%;
+
+    }
+    p{
+        margin:0;
+        font-size: 1.4vw;
+        font-weight: 600;
+    }
+}
+.changeProfile-body{
+    h2{
+        margin-bottom: 10px;
+        font-size: 1.9vw;
+        text-align: center;
+        font-weight: 600;
+    }
+}
+.changeProfile-formContainer{
+    justify-content: space-evenly !important;
+    padding:3.5vw 0px !important;
+    svg{
+        width: 1.2vw;
+        margin:0px 10px;
+    }
+    p{
+        font-size: 1vw;
+        text-align: center;
+        margin-top:3px;
+        font-weight: 500;
+    }
+    .imgContainer{
+        height: 10vw;
+        width: 10vw;
+        max-height: 120px;
+        max-width: 120px;
+        margin-right: 0;
+        img{
+            border-radius: 4px;
+        }
+    }
+    .imgContainer:hover{
+        cursor: auto;
+    }
+}
+.chooseImage-BodyContainer{
+    padding:0px 40px;
+    overflow-y: auto;
+
+}
+.chooseImage-accountInfo{
+    *{
+        transition:all 0.3s ease;
+    }
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    .titleContainer{
+        width: fit-content;
+        position: relative;
+        padding-left: 6vw;
+        *{
+            margin:0;
+        }
+        span{
+            display: inline-block;
+            transform: rotate(180deg);
+            position: absolute;
+            width:3vw ;
+            height: 3vw;
+            left:0;
+            top:20%;
+            z-index: 3;            
+        }
+        span:hover{
+            cursor: pointer;
+        }
+        h3{
+            margin-bottom: 2px;
+            font-size: 2.5vw;
+        }
+        h4{
+            font-size: 1.8vw;
+        }
+    }
+    .titleContainer::before{
+        content: '\2794';
+        display: inline-block;
+        transform: rotate(180deg);
+        position: absolute;
+        font-size: 3vw;
+        left:0;
+        top:20%;
+
+    }
+    .profileInfo{
+        color: white;
+        display: flex;
+        align-items: center;
+        .imgContainer{
+            height: 6vw;
+            width: 6vw;
+            max-height: 90px;
+            max-width: 90px;
+            min-height: 40px;
+            min-width: 40px;
+            border-radius: 4px;
+            margin-left:20px;
+            img{
+                border-radius: 4px;
+            }
+        }
+        h5{
+            font-size: 2vw;
+            margin:0;
+            font-weight: 500;
+        }
+    }
+}
+.chooseImage-imagesContainer{
+    transition:all 0.3s ease;
+    margin:50px -10px 0px -10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:12px;
+    div{
+        max-height: 200px;
+        max-width: 200px;
+        min-height: 40px;
+        min-width: 40px;
+        height: 13.66vw;
+        width: 13.66vw;
+        border-radius: 4px;
+        outline-offset:2px solid transparent;
+        img{
+            border-radius: 4px;
+
+        }
+    }
+    div:hover{
+        outline: 2px solid white;
+    }
+
+}
+@media (max-width:800px)
+{
+    .browseAccounts-Body{
+        h2{
+            font-size:30px;
+        }
+        a{
+            font-size:14px;
+
+        }
+        .a-manage{
+           
+            padding:8px 20px;
+
+        }
+    }
+    .account-container{
+        p{
+            font-size: 14px;
+        }
+    }
+    .createProfile-body{
+        h2{
+            font-size: 40px;
+        }
+        h4{
+            font-size:12px;
+
+        }
+        button{
+            padding:8px 15px;
+            font-size: 16px;
+        }
+    }
+    .createProfile-formContainer{
+        svg{
+            width: 12px;
+            margin:0px 10px;
+        }
+        .inputText{
+            font-size: 12px;
+            width: 200px;
+        }
+        .radioInput{
+            opacity: 0;
+            width: 20px;
+        }
+        .kidsOption{
+            p{
+                font-size: 14px;
+            }
+        }
+        .kidsOption:after{
+            width: 20px;
+            height: 20px;
+            }
+        .checked:before{
+            font-size: 12px;
+            }
+    }
+    .chooseImage-accountInfo{
+        margin: 0px -20px;
+        .titleContainer{
+            padding-left: 30px;
+            h3{
+                font-size: 18px;
+            }
+            h4{
+                font-size: 14px;
+
+            }
+            span{
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .titleContainer::before{
+            content: '\2794';
+            display: inline-block;
+            transform: rotate(180deg);
+            position: absolute;
+            font-size: 22px;
+            left:0;
+            top:20%;
+    
+        }
+        .profileInfo{
+            h5{
+                font-size: 14px;
+            }
+        }
+    }
+}
+@media (orientation:landscape){
+    .browseAccounts-container{
+        max-height: 100vh;
+        overflow: hidden;
+    }
+    .browseAccounts-BodyContainer{
+
+        padding:0px 40px;
+    }
+    .createProfile-BodyContainer{
+        padding:0px 40px;
+
+    }
+    
+}

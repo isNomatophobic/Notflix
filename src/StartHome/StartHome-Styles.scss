@@ -1,0 +1,700 @@
+@font-face{
+    src:url('../fonts/NetflixSansRegular.ttf');
+    font-family:base;
+}
+html{
+    font-size:16px;
+}
+body{
+    height: 100vh;
+    background-color: black;
+
+}
+#root{
+    width: 100%;
+    height: 100%;
+}
+img{
+    max-width: 100%;
+    height: auto
+}
+$bottomB-color:#222;
+
+    .sections-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+    }
+    .footer-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:white;
+        padding:60px 0px 28px 0px
+    }
+
+.redButton{
+    background-color:#e50914;
+}
+.redButton:hover{
+    background-color: lighten($color: #e50914, $amount: 5%);
+}
+.header-container{
+    width: 100%;
+    height: 747px;
+    border-bottom:8px solid $bottomB-color;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .imageWrapper{
+        width:100%;
+        height:100%;
+        position: absolute;
+        z-index: 0;
+        top:0;
+        img{
+            z-index: 0;
+            object-fit:cover;
+            min-height:100%;
+        }
+    }
+    .backgroundImage-container
+    {
+        z-index: 0;
+        top:0;
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,0.8) 13%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,.92) 100%);        position: absolute;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    
+
+}
+.navbar-container{
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    display: flex;
+    padding:12px 2%;
+    justify-content: space-between;
+    align-items: center;
+    *{
+        margin:1rem;
+    }
+    svg{
+        fill: red;
+        height:45px;
+        width: 167px;
+        margin-top:10px;
+    }
+    a{
+        color:white;
+        padding: 8px 17px;
+        border-radius: 3px;
+        font-family: 'base';
+        cursor: pointer;
+    }
+
+}
+.headerBody-container{
+        position: relative;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        z-index: 2;
+        color:white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        font-family: 'base';
+        max-width: 850px;
+        h1{
+            margin-bottom:1rem;
+            font-size: 4rem;
+            line-height: 4rem;
+        }
+
+    }
+.section{
+    width: 100%;
+    border-bottom:7px solid $bottomB-color;
+    padding:40px 34px 30px 34px;
+
+}
+.inputComponent-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    h3{
+        max-width: none;
+        text-align: center;
+    }
+}
+.input-container{
+    max-width: 830px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom:0;
+    label{
+        position: absolute;
+        z-index: 3;
+        color:grey;
+        left:4%;
+        transition: all 0.2s ease;
+
+    }
+    input{
+        width: 60%;
+        min-height: 70px;
+        border:none;
+        margin-right: 0;
+        padding-left: 1.5%;
+        padding-top:1%
+    }
+    a{
+        width: 35%;
+    }
+    button{
+        width: 100%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border:0;
+        min-height: 70px;
+        margin-left: 0;
+        cursor: pointer;
+        color:white;
+        font-size:1.5rem;
+        span{
+            width: 15px;
+            height: 20px;
+            display: inline-block;
+            position: relative;
+        }
+        svg{
+            position: absolute;
+            z-index: 30;
+            height: 20px;
+            fill:white;
+        }
+    }
+    h4{
+        position: absolute;
+        top:90%;
+        left:3.5%;
+        font-weight: 500;
+        color:#ffa00a;
+
+    }
+}
+.inputUnfocused{
+    top:35%;
+}
+.inputFocused{
+    top:10%;
+    font-size: 14px;
+}
+.inputError{
+    max-width: 850px;
+    margin:0;
+    color:#ffa00a;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 35px;
+
+}
+.section-container{
+    height: 100%;
+    max-width: 1100px;
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    justify-content: space-between;
+    text-align: center;
+    
+    h1{
+        display: block;
+        font-size: 3.125rem;
+        line-height: 1.1;
+        margin-bottom: .5rem;
+    }
+    h2{
+        font-weight: normal;
+        font-size:1.7rem;
+
+    }
+    .section-textWrapper{
+        width: 52%;
+        align-items: center;
+    }
+    .section-imgWrapper{
+        position: relative;
+        max-width: 48%;
+        img{
+            z-index: 1;
+            position: relative;
+        }
+    }
+}
+.phoneAnimation{
+    border: 2px solid rgba(255,255,255,.25);
+    width:60%;
+    position: absolute;
+    top:80%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    z-index: 3;
+    background-color: black;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.phoneAnimation-imgContainer{
+    width:20%;
+
+    img{
+        height: 100%;
+        width: 100%;
+    }
+}
+.phoneAnimation::after{
+    background: url("../assets/download-icon.gif");
+    width:4em;
+    content: '';
+    height: 4em;
+    display: block;
+    flex-grow: 0;
+    background-size: 100%;
+}
+.phoneAnimation-textContainer{
+    line-height: 0.4;
+    h2{
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    p{
+        font-size: .9rem;
+        color:#0071eb;
+
+    }
+}
+.tvVideo{
+    top: 47.9%;
+    left: 49.5%;
+    max-width: 73%;
+    max-height: 54%;
+}
+.itemsVideo{
+    top: 32%;
+    left: 50%;
+    max-width: 63%;
+    max-height: 47%;
+}
+.sectionAnimation-container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    video{
+        width:100%;
+        height: 100%;
+    }
+}
+.faq-container{
+    padding:40px 0px 55px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom:7px solid $bottomB-color;
+
+    .faq-body{
+        width: 100%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+.faq-title-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+}
+.faq-questions-container{
+    max-width: 830px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom:30px;
+    width: 70%;
+}
+.faqQuestion-container{
+    color:white;
+    margin-bottom: 10px;
+    width: 100%;
+    
+    .faqQuestion{
+        cursor: pointer;
+        background-color:#303030;
+        display: flex;
+        width: 100%;
+        position: relative;
+        min-height: auto;
+        margin-bottom: 10px;
+        font-size: 1.625rem;
+        padding:20px 20px 20px 30px;
+        font-weight: 600;
+        margin-bottom: 1px;
+    }
+    .faqResponse{
+        background-color:#303030;
+        max-height: 1200px;
+        transition: 0.3s all ease;
+        overflow: hidden;
+
+        span{
+            padding:20px 20px 20px 30px;
+            font-size: 1.625rem;
+            display: inline-block;
+            
+        }
+    }
+    svg{
+        position: absolute;
+        top:52%;
+        right: 0;
+        width: 2rem;
+        fill:white;
+        transform: translate(-50%,-50%) rotate(-45deg);
+        transition: 0.1s transform ease-out;
+    }
+}
+.footerLinks-container{
+    min-width: 190px;
+    padding:0px 70px 0px 70px;
+    color:#757575;
+    .regionNetflix{
+        font-size: 0.8rem;
+    }
+    .linksList{
+        list-style: none;
+        max-width: 1000px;
+        font-size: 0.8rem;
+        padding:20px 0px 20px 0px;
+    }
+}
+.footerLink-container{
+    
+    width: 25%;
+    display: inline-block;
+    margin:0px 0px 14px 0px;
+    .footerLink{
+        cursor: pointer;
+    }
+    .footerLink:hover{
+        text-decoration: underline;
+    }
+}
+
+@media (max-width:1450px)
+{
+    .navbar-container{
+        padding: 12px 50px 0px 50px;
+        svg{
+            height: 36px;
+            width: 134px;
+        }
+    }
+    .headerBody-container{
+        max-width: 650px;
+    }
+    .headerBody-container h1
+    {
+        font-size: 3.4rem;
+    }
+}
+@media only screen and (min-width:551px)and (max-width:950px) 
+{
+
+    .headerBody-container
+    {
+        max-width: 550px;
+        *{
+            margin-bottom: 0.1rem;
+        }
+        h1
+        {
+            font-size: 3.3rem;
+        }
+    }
+    .inputComponent-container{
+        h3{
+            max-width: 530px;
+        }
+    }
+    .input-container{
+        flex-direction: column;
+        label{
+            top:14%
+        }
+        input{
+            min-height: 50px;
+            width: 95%;
+            margin-bottom: 10px;
+        }
+        a{
+            width: 30%;
+
+        }
+        button{
+            min-height: 40px;
+            font-size:1rem ;
+            border-radius: 3px;
+            span{
+                width: 15px;
+                height: 14px;
+                display: inline-block;
+                position: relative;
+            }
+            svg{
+                position: absolute;
+                z-index: 30;
+                height: 17px;
+                fill:white;
+            }
+        }
+    }
+    .inputFocused{
+        top:5% !important;
+        font-size: 11px;
+    }
+    .section-container{
+        flex-direction: column;
+        .section-imgWrapper{
+            max-width: 100%;
+        }
+        .section-textWrapper{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            h1{
+                font-size: 2.5rem;
+            }
+            h2{
+                font-size: 1.4rem;
+            }
+        }
+    }
+    .section1{
+        flex-direction: column-reverse;
+    }
+    .faq-body{
+        .input-container{
+            width: 65%;
+        }
+    }
+    .faq-title-container{
+        font-size: 1.25rem;
+    }
+    .faq-questions-container{
+        width: 85%;
+    }
+    .faqQuestion-container{
+        .faqQuestion{
+            font-size: 1.20rem;
+
+        }
+        .faqResponse{
+            span{
+                font-size: 1.25rem;
+            }
+        }
+    }
+    .linksList{
+        .footerLink-container{
+            width: 33%;
+
+        }
+    }
+}
+@media only screen and (max-width:550px)
+{
+    .navbar-container{
+        padding: 12px 10px 0px 15px;
+        svg{
+            height: 36px;
+            width: 20%;
+        }
+        a{
+            padding: 5px 12px;
+            font-size: 0.9rem;
+        }
+    }
+    .header-container{
+        height: auto;
+        
+        padding-bottom: 75px;
+        .backgroundImage-container
+        {
+            
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 5%, rgba(0,0,0,.2) 50%, rgba(0,0,0,.98) 100%);
+        }
+    }
+    .headerBody-container
+    {
+        margin-top:75px;
+        *{
+            margin-bottom: 0.1rem;
+        }
+        h1
+        {
+            line-height: 1;
+            font-size: 1.55rem;
+        }
+        h2{
+            font-size: 1.1rem;
+
+        }
+        .inputComponent-container{
+            h3{
+                font-size: 1.1rem;
+                max-width: 300px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .inputComponent-container{
+        h3{
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+    }
+    .input-container{
+        flex-direction: column;
+        label{
+            top:14%;
+            left:7%;
+        }
+        input{
+            min-height: 50px;
+            width: 91%;
+            margin-bottom: 10px;
+        }
+        a{
+            width: 40%;
+
+        }
+        button{
+            min-height: 40px;
+            font-size:1rem ;
+            border-radius: 3px;
+            span{
+                width: 12px;
+                height: 14px;
+                display: inline-block;
+                position: relative;
+            }
+            svg{
+                position: absolute;
+                z-index: 30;
+                height: 15px;
+                fill:white;
+            }
+        }
+    }
+    .inputFocused{
+        top:5% !important;
+        font-size: 10px;
+    }
+    .section-container{
+        flex-direction: column;
+        .section-imgWrapper{
+            max-width: 100%;
+        }
+        .section-textWrapper{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            h1{
+                font-size: 2.5rem;
+            }
+            h2{
+                font-size: 1.4rem;
+            }
+        }
+    }
+    .phoneAnimation{
+        width: 90%;
+        
+        .phoneAnimation-textContainer{
+            h2{
+                font-size: 0.75rem;
+                line-height: 0.8rem;
+            }
+            p{
+                font-size:0.67rem;
+            }
+        }
+    }
+    .section1{
+        flex-direction: column-reverse;
+    }
+    .faq-body{
+        .input-container{
+            width: 95%;
+        }
+    }
+    .faq-title-container{
+        font-size: .8rem;
+    }
+    .faq-questions-container{
+        width: 100%;
+    }
+    .faqQuestion-container{
+        .faqQuestion{
+            font-size: 1.10rem;
+        }
+        .faqResponse{
+            span{
+                font-size: 1.10rem;
+            }
+        }
+    }
+    .linksList{
+        .footerLink-container{
+            width: 50%;
+
+        }
+    }
+}
