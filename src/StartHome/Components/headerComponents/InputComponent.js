@@ -1,6 +1,6 @@
 import {useState} from "react"
 import validator from "validator"
-import {ReactComponent as Arrow} from "../../../assets/arrow.svg"
+import {ReactComponent as Arrow} from "assets/arrow.svg"
 import {Link} from "react-router-dom"
 function InputComponent()
 {

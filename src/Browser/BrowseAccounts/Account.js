@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import {ReactComponent as Pencil} from "../../assets/pencil.svg"
+import {ReactComponent as Pencil} from "assets/pencil.svg"
 
 function Account({image,name,mode,add,setCreator:setCreator}) {
 

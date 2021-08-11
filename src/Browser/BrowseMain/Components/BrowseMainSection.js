@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useRef, useState } from "react";
-import {ReactComponent as Arrow} from "../../../assets/arrow.svg"
-import useWindowDimensions from "../../../Hooks/useWindowDimensions"
+import {ReactComponent as Arrow} from "assets/arrow.svg"
+import useWindowDimensions from "Hooks/useWindowDimensions"
 import BrowseMainSectionMovie from "./BrowserMainSectionMovie"
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));

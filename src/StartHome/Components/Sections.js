@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import List from "../../assets/sectionList"
+import List from "assets/sectionList"
 import Section from "./SectionsComponents/Section"
 function Sections()
 {

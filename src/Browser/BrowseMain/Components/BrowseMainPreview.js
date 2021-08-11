@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react";
 import BrowseMainSection from "./BrowseMainSection"
 import ReactPlayer from 'react-player/lazy'
-import getRandomInt from "../../../Helpers/getRandomInt"
+import getRandomInt from "Helpers/getRandomInt"
 import axios from "axios"
 
 export default function BrowseMainPreview({url,id,currentHovered,setCurrentHovered}) {

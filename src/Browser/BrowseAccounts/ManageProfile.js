@@ -1,10 +1,10 @@
 import "./BrowseAccounts-Styles.css"
 import Image from "./Image"
-import {ReactComponent as Logo} from "../../assets/logo.svg"
+import {ReactComponent as Logo} from "assets/logo.svg"
 import { Link,useLocation, useHistory,Redirect } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
-import {ReactComponent as Pencil} from "../../assets/pencil.svg"
-import {ReactComponent as Arrow} from "../../assets/arrow.svg"
+import {ReactComponent as Pencil} from "assets/pencil.svg"
+import {ReactComponent as Arrow} from "assets/arrow.svg"
 
 import axios from "axios"
 

@@ -1,6 +1,6 @@
 import InputComponent from "./headerComponents/InputComponent"
 import FaqQuestion from "./SectionsComponents/FaqQuestion"
-import questionsList from "../../assets/questionsList"
+import questionsList from "assets/questionsList"
 function Faq()
 {
     var Questions=questionsList.map((data)=>

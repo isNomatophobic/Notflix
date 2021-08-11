@@ -1,4 +1,4 @@
-import {ReactComponent as Logo} from "../../assets/logo.svg"
+import {ReactComponent as Logo} from "assets/logo.svg"
 import Account from "./Account"
 import "./BrowseAccounts-Styles.css"
 import { Link } from "react-router-dom"

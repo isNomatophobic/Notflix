@@ -1,6 +1,6 @@
 import { Link, useHistory,Redirect } from "react-router-dom"
 import "./BrowseAccounts-Styles.css"
-import {ReactComponent as Logo} from "../../assets/logo.svg"
+import {ReactComponent as Logo} from "assets/logo.svg"
 import { useRef, useState } from "react";
 import axios from "axios"
 

@@ -1,17 +1,17 @@
 import {useState,useRef,useEffect} from "react"
 import axios from "axios"
 import {useLocation,useHistory} from "react-router-dom"
-import {ReactComponent as Play} from "../../../assets/play.svg"
-import {ReactComponent as MoreInfo} from "../../../assets/moreInfo.svg"
-import {ReactComponent as Logo} from "../../../assets/logo.svg"
-import {ReactComponent as Search} from "../../../assets/search2.svg"
-import {ReactComponent as Bell} from "../../../assets/bell.svg"
-import {ReactComponent as Unmuted} from "../../../assets/unmuted.svg"
-import {ReactComponent as Muted} from "../../../assets/muted.svg"
-import {ReactComponent as Reload} from "../../../assets/reload.svg"
+import {ReactComponent as Play} from "assets/play.svg"
+import {ReactComponent as MoreInfo} from "assets/moreInfo.svg"
+import {ReactComponent as Logo} from "assets/logo.svg"
+import {ReactComponent as Search} from "assets/search2.svg"
+import {ReactComponent as Bell} from "assets/bell.svg"
+import {ReactComponent as Unmuted} from "assets/unmuted.svg"
+import {ReactComponent as Muted} from "assets/muted.svg"
+import {ReactComponent as Reload} from "assets/reload.svg"
 import { findAllByTestId } from "@testing-library/react"
 import ReactPlayer from 'react-player/lazy'
-import getRandomInt from "../../../Helpers/getRandomInt"
+import getRandomInt from "Helpers/getRandomInt"
 const YouTubeToHtml5 = require('@thelevicole/youtube-to-html5-loader');
 
 function sleep(ms) {

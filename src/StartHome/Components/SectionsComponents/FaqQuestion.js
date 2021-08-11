@@ -1,5 +1,5 @@
 import {useState} from "react"
-import {ReactComponent as Cross} from "../../../assets/cross.svg"
+import {ReactComponent as Cross} from "assets/cross.svg"
 
 function FaqQuestion({title,text1,text2})
 {
