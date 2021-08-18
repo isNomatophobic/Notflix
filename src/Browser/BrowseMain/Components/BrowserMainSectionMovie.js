@@ -1,7 +1,8 @@
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import debounce from "Helpers/debounce"
+import { useEffect, useRef, useState,useMemo } from "react";
 
-export default function BrowserMainSectionMovie({vote,url,id,setCurrentHovered,index,hasSlided,isSliding}) {
+export default function BrowserMainSectionMovie({vote,url,id,setCurrentHovered,index,hasSlided,isSliding,debouncedHandle}) {
   const posterRef = useRef("");
   const [boundingInfo, setBoundingInfo] = useState({
     width: 0,
@@ -10,42 +11,20 @@ export default function BrowserMainSectionMovie({vote,url,id,setCurrentHovered,i
     y: 0,
   });
   const searchBounding = () => {
-    
+    console.log("bounce");
     if(isSliding) return
 
     const newInfo = {
       width: posterRef.current.getBoundingClientRect().width,
       height: posterRef.current.getBoundingClientRect().height,
       x: posterRef.current.getBoundingClientRect().left,
-      y: posterRef.current.getBoundingClientRect().top,
+      y: posterRef.current.getBoundingClientRect().top+window.pageYOffset,
     };
-    if(newInfo.x<=0||newInfo.x+newInfo.width>=window.innerWidth){
-      const currentHovered = {
-        id: '',
-        imgUrl: 'url',
-        x: 999999, 
-        y: 999999,
-        width: 0,
-        height: 0,
-      };
-      setCurrentHovered((p) => currentHovered);
-      return
-    }
 
-    console.log(newInfo);
     setBoundingInfo((p) => newInfo);
-    const currentHovered = {
-      id: id,
-      imgUrl: url,
-      x: newInfo.x, 
-      y: newInfo.y,
-      width: newInfo.width,
-      height: newInfo.height,
-    };
-    setCurrentHovered((p) => currentHovered);
 
     }
-  ;
+  const debouncedSearch = useMemo(() => debounce(searchBounding, 300), []);
   useEffect(() => {
     searchBounding();
   }, [window.innerHeight, window.innerWidth]);
@@ -54,7 +33,7 @@ export default function BrowserMainSectionMovie({vote,url,id,setCurrentHovered,i
       <div
         ref={posterRef}
         className="MovieContainer-posters"
-        onMouseEnter={searchBounding}
+        onMouseEnter={()=>{searchBounding();debouncedHandle(boundingInfo.width,boundingInfo.height,boundingInfo.x,boundingInfo.y,id,url);}}
       >
         <img src={url}></img>
       </div>

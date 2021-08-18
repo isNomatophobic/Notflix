@@ -11,19 +11,22 @@ export default function BrowseMainSections({
   keyword,
   setCurrentHovered,
   setSliding,
-  isSliding
+  isSliding,
+  debouncedHandle
 }) {
   const { height, width } = useWindowDimensions();
   const [hasSlided, setHasSlided] = useState(false);
   const [sectionMovies, setSectionMovies] = useState(null);
   const moviesContainer = useRef(null);
   const [slidePosition, setSlidePosition] = useState(0);
+  
   const fetchMovies = async () => {
     const base_url = sessionStorage.getItem("base_url");
     const url = `https://api.themoviedb.org/3/movie/${keyword}?api_key=${process.env.REACT_APP_API_KEY}`;
     const response = await axios.get(url);
     const movies = response.data.results;
     console.log("Logged Output:: fetchMovies -> movies", movies);
+
     const jsxArray = movies.map((movie, i = 0) => {
       const url = base_url + "original" + movie.backdrop_path;
       console.log(url);
@@ -36,7 +39,7 @@ export default function BrowseMainSections({
           id={movie.id}
           setCurrentHovered={setCurrentHovered}
           isSliding={isSliding}
-
+          debouncedHandle={debouncedHandle}
         />
       );
     });
@@ -146,7 +149,9 @@ export default function BrowseMainSections({
   useEffect(() => {
     fetchMovies();
   }, []);
+  const handleHover= (width,height,x,y)=>{
 
+  }
   return (
     <div className="browseMain-Section">
       <h2>{sectionTitle}</h2>

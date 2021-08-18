@@ -1,17 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import BrowseMainSection from "./BrowseMainSection";
 import ReactPlayer from "react-player/lazy";
 import getRandomInt from "Helpers/getRandomInt";
 import axios from "axios";
+import sleep from "Helpers/sleep"
+import debounce from "Helpers/debounce"
 
 export default function BrowseMainPreview({url,id,currentHovered,setCurrentHovered,isSliding}) {
   const [movieVideoUrl, setMovieVideoUrl] = useState("");
-  const [isHovered, setHovered] = useState(false);
+  const [isPlaying, setPlaying] = useState(false);
   const [styles, setStyles] = useState({});
+  const [isHovered,setHovered]= useState(false)
 
   const fetchVideo = () => {
     if (currentHovered.id == "") return;
-
     try {
       url = `https://api.themoviedb.org/3/movie/${currentHovered.id}/videos?api_key=${process.env.REACT_APP_API_KEY}`;
       const videos = axios.get(url).then(async (res) => {
@@ -26,13 +28,21 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
           let RI = getRandomInt(0, res.data.results.length - 1);
           video = res.data.results[RI];
         }
-        if (video) setMovieVideoUrl((p) => video.key);
+        if (video)
+        {
+        console.log("Playing!");
+        setMovieVideoUrl((p) => video.key);
+        }
       });
     } catch (e) {
       console.log(e);
     }
   };
-  const remove = () => {
+  const remove = async () => {
+    setHovered(p=>false)
+    await sleep(300)
+    setMovieVideoUrl(p=>"")
+    setPlaying(p=>false)
     const styles = {
       top: 99999,
       left: 99999,
@@ -43,6 +53,8 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
     setStyles((p) => styles);
   };
   useEffect(() => {
+
+    setPlaying(p=>false)
     window.addEventListener("resize", remove);
     if (isSliding) remove();
     if (!isSliding) {
@@ -52,32 +64,36 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
         left: currentHovered.x,
         width: currentHovered.width,
         height: currentHovered.height,
-        animationName: `appear`,
-        animationDuration: `1s`,
       };
-      setStyles((p) => styles);
+      setStyles((p) => styles)
     }
     return () => window.removeEventListener("resize", remove);
 
   }, [currentHovered, isSliding]);
   return (
     <div
-      className="browseMain-PreviewContainer"
+      className={`browseMain-PreviewContainer ${isHovered?"grow":""}`}
+      onMouseEnter={()=>setHovered(p=>true)}
       onMouseLeave={remove}
       style={styles}
     >
-      <div className="lol"></div>
-      {/* <img src={currentHovered.imgUrl}></img>
-      <ReactPlayer
-        wrapper="div"
-        url={`https://www.youtube.com/watch?v=${movieVideoUrl}`}
-        playing={true}
-        muted={true}
-        controls={false}
-        height="100%"
-        width="100%"
-        style={{ position: `relative` }}
-      /> */}
+      <div className="PreviewContainer-PosterContainer">
+        <img src={currentHovered.imgUrl} style={{opacity:isPlaying?"0":"1"}}></img>
+        <ReactPlayer
+          wrapper="div"
+          url={`https://www.youtube.com/watch?v=${movieVideoUrl}`}
+          playing={true}
+          muted={true}
+          controls={false}
+          height="100%"
+          width="100%"
+          onPlay={()=>setPlaying(p=>true)}
+          style={{ position: `relative` }}
+          />
+      </div>
+      <div className="PreviewContainer-HiddenContainer">
+        
+      </div>
     </div>
   );
 }

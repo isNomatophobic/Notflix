@@ -12,13 +12,9 @@ import {ReactComponent as Reload} from "assets/reload.svg"
 import { findAllByTestId } from "@testing-library/react"
 import ReactPlayer from 'react-player/lazy'
 import getRandomInt from "Helpers/getRandomInt"
+import sleep from "Helpers/sleep"
 const YouTubeToHtml5 = require('@thelevicole/youtube-to-html5-loader');
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
-   
     export default function BrowseMainHeader({accounts,setLoading,currentUser,setCurrentUser}) {
     
     //Iframe embed youtube videos.
