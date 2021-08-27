@@ -4,13 +4,16 @@ import ReactPlayer from "react-player/lazy";
 import getRandomInt from "Helpers/getRandomInt";
 import axios from "axios";
 import sleep from "Helpers/sleep"
-import debounce from "Helpers/debounce"
+import useRememberDetails from "Hooks/useRememberDetails"
+
+import {ReactComponent as Play} from "assets/play.svg" 
 
 export default function BrowseMainPreview({url,id,currentHovered,setCurrentHovered,isSliding}) {
   const [movieVideoUrl, setMovieVideoUrl] = useState("");
   const [isPlaying, setPlaying] = useState(false);
   const [styles, setStyles] = useState({});
   const [isHovered,setHovered]= useState(false)
+  const details = useRememberDetails(currentHovered.id)
 
   const fetchVideo = () => {
     if (currentHovered.id == "") return;
@@ -44,8 +47,8 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
     setMovieVideoUrl(p=>"")
     setPlaying(p=>false)
     const styles = {
-      top: 99999,
-      left: 99999,
+      top: 0,
+      left: 0,
       width: 0,
       height: 0,
       display: "none",
@@ -53,13 +56,15 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
     setStyles((p) => styles);
   };
   useEffect(() => {
-
+  
     setPlaying(p=>false)
     window.addEventListener("resize", remove);
-    if (isSliding) remove();
+    if (isSliding||currentHovered.id == "") remove();
     if (!isSliding) {
       fetchVideo();
+      console.log("Logged Output:: BrowseMainPreview -> currentHovered.position", currentHovered.position)
       const styles = {
+        transformOrigin:currentHovered.position,
         top: currentHovered.y,
         left: currentHovered.x,
         width: currentHovered.width,
@@ -75,25 +80,33 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
       className={`browseMain-PreviewContainer ${isHovered?"grow":""}`}
       onMouseEnter={()=>setHovered(p=>true)}
       onMouseLeave={remove}
-      style={styles}
+      style={{top:styles.top,left:styles.left,display:styles.display,transformOrigin:styles.transformOrigin}}
     >
-      <div className="PreviewContainer-PosterContainer">
-        <img src={currentHovered.imgUrl} style={{opacity:isPlaying?"0":"1"}}></img>
-        <ReactPlayer
-          wrapper="div"
-          url={`https://www.youtube.com/watch?v=${movieVideoUrl}`}
-          playing={true}
-          muted={true}
-          controls={false}
-          height="100%"
-          width="100%"
-          onPlay={()=>setPlaying(p=>true)}
-          style={{ position: `relative` }}
-          />
-      </div>
-      <div className="PreviewContainer-HiddenContainer">
-        
-      </div>
+      
+      <div>
+        <div className="PreviewContainer-PosterContainer" style={{height:styles.height,width:styles.width}}>
+          <img src={currentHovered.imgUrl} style={{opacity:isPlaying?"0":"1"}}></img>
+          <ReactPlayer
+            wrapper="div"
+            url={`https://www.youtube.com/watch?v=${movieVideoUrl}`}
+            playing={true}
+            muted={true}
+            controls={false}
+            height="100%"
+            width="100%"
+            onPlay={()=>setPlaying(p=>true)}
+            style={{ position: `relative` }}
+            />
+        </div>
+        <div className="PreviewContainer-HiddenContainer">
+          <div className="HiddenContainer-ActionButtons">
+            <div className="ActionButtons-Button">
+              <Play/>
+            </div>
+          </div>
+          {details?<div>{details.runtime}</div>:null}
+        </div>
+      </div>  
     </div>
   );
 }

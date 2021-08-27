@@ -35,7 +35,6 @@ export default function BrowseMainSections({
           hasSlided={hasSlided}
           index={i}
           url={url}
-          vote={movie.vote_average}
           id={movie.id}
           setCurrentHovered={setCurrentHovered}
           isSliding={isSliding}

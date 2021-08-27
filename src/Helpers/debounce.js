@@ -2,7 +2,8 @@ export default function debaunce (fn,delay){
     let timeID
     return function (...args)
     {
-        if(timeID)
+        let check = [...args]
+        if(timeID||check[0]=="clear")
         {
             clearTimeout(timeID)
         }

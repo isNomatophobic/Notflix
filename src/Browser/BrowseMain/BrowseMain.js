@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import BrowseMainHeader from "./Components/BrowseMainHeader";
 import BrowseMainSections from "./Components/BrowseMainSections";
 import BrowseMainPreview from "./Components/BrowseMainPreview";
-
 import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 
@@ -26,6 +25,7 @@ function BrowseMain({ accounts }) {
     Y: 0,
     width: 0,
     height: 0,
+    position:'center'
   });
   const [isSliding, setSliding] = useState(false);
   const [baseUrl,setBaseUrl] = useState(null)

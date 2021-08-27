@@ -708,10 +708,6 @@
   margin-right: 10px;
 }
 
-.browserMain-info .playButton svg {
-  fill: black;
-}
-
 .browserMain-info .playButton:hover {
   background-color: rgba(255, 255, 255, 0.75);
 }
@@ -884,13 +880,11 @@
 }
 
 .grow {
-  -webkit-transform: scale(1.3) !important;
-          transform: scale(1.3) !important;
+  -webkit-transform: scale(1.8) !important;
+          transform: scale(1.8) !important;
 }
 
 .browseMain-PreviewContainer {
-  width: 10%;
-  height: 10%;
   position: absolute;
   z-index: 999;
   overflow: hidden;
@@ -905,9 +899,7 @@
 
 .browseMain-PreviewContainer .PreviewContainer-PosterContainer {
   border-radius: 4px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
+  position: relative;
 }
 
 .browseMain-PreviewContainer img {
@@ -930,6 +922,41 @@
   height: 85vh;
   pointer-events: none;
   z-index: 0;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.PreviewContainer-HiddenContainer {
+  background-color: #181818;
+  color: white;
+  width: 100%;
+  position: relative;
+  height: 60%;
+  z-index: 3;
+  padding: 1vw;
+}
+
+.PreviewContainer-HiddenContainer .HiddenContainer-ActionButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.PreviewContainer-HiddenContainer .ActionButtons-Button {
+  width: 2.7vw;
+  height: 2.7vw;
+  border-radius: 50%;
+  background: white;
+  position: relative;
+}
+
+.PreviewContainer-HiddenContainer svg {
+  width: 70%;
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
