@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import BrowseMainHeader from "./Components/BrowseMainHeader";
 import BrowseMainSections from "./Components/BrowseMainSections";
 import BrowseMainPreview from "./Components/BrowseMainPreview";
+import Footer  from "../../StartHome/Components/Footer"
 import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 
@@ -42,7 +43,7 @@ function BrowseMain({ accounts }) {
   const [isLoading, setLoading] = useState(true);
 
   return (
-    <div className="browseMain">
+    <div className="browseMain" style={{height:isLoading?"100vh":null}}>
       {baseUrl ? (
         <div className="loadedContent">
           <BrowseMainHeader
@@ -61,6 +62,7 @@ function BrowseMain({ accounts }) {
             isSliding={isSliding}
             currentHovered={currentHovered}
           />
+          <Footer bgColor="#141414"/>
         </div>
       ) : null}
       <div

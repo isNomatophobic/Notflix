@@ -1,50 +1,27 @@
 import { useState, useEffect, useRef } from "react";
+import PreviewPoster from "./PreviewComponents/PreviewPoster"
 import BrowseMainSection from "./BrowseMainSection";
 import ReactPlayer from "react-player/lazy";
-import getRandomInt from "Helpers/getRandomInt";
-import axios from "axios";
 import sleep from "Helpers/sleep"
 import useRememberDetails from "Hooks/useRememberDetails"
+import useRememberVideo from "Hooks/useRememberVideo"
+
 
 import {ReactComponent as Play} from "assets/play.svg" 
+import {ReactComponent as Tick} from "assets/tick.svg" 
+import {ReactComponent as Thumb} from "assets/thumb.svg" 
+import { ReactComponent as Arrow } from "assets/arrow.svg";
+
+
 
 export default function BrowseMainPreview({url,id,currentHovered,setCurrentHovered,isSliding}) {
-  const [movieVideoUrl, setMovieVideoUrl] = useState("");
   const [isPlaying, setPlaying] = useState(false);
   const [styles, setStyles] = useState({});
   const [isHovered,setHovered]= useState(false)
   const details = useRememberDetails(currentHovered.id)
-
-  const fetchVideo = () => {
-    if (currentHovered.id == "") return;
-    try {
-      url = `https://api.themoviedb.org/3/movie/${currentHovered.id}/videos?api_key=${process.env.REACT_APP_API_KEY}`;
-      const videos = axios.get(url).then(async (res) => {
-        var video = "";
-        for (let i = 0; i < res.data.results.length; i++) {
-          if (res.data.results[i].type == "Trailer") {
-            video = res.data.results[i];
-            break;
-          }
-        }
-        if (!video) {
-          let RI = getRandomInt(0, res.data.results.length - 1);
-          video = res.data.results[RI];
-        }
-        if (video)
-        {
-        console.log("Playing!");
-        setMovieVideoUrl((p) => video.key);
-        }
-      });
-    } catch (e) {
-      console.log(e);
-    }
-  };
   const remove = async () => {
     setHovered(p=>false)
     await sleep(300)
-    setMovieVideoUrl(p=>"")
     setPlaying(p=>false)
     const styles = {
       top: 0,
@@ -56,13 +33,11 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
     setStyles((p) => styles);
   };
   useEffect(() => {
-  
+    console.log(currentHovered);
     setPlaying(p=>false)
     window.addEventListener("resize", remove);
     if (isSliding||currentHovered.id == "") remove();
     if (!isSliding) {
-      fetchVideo();
-      console.log("Logged Output:: BrowseMainPreview -> currentHovered.position", currentHovered.position)
       const styles = {
         transformOrigin:currentHovered.position,
         top: currentHovered.y,
@@ -75,6 +50,7 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
     return () => window.removeEventListener("resize", remove);
 
   }, [currentHovered, isSliding]);
+
   return (
     <div
       className={`browseMain-PreviewContainer ${isHovered?"grow":""}`}
@@ -82,29 +58,43 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
       onMouseLeave={remove}
       style={{top:styles.top,left:styles.left,display:styles.display,transformOrigin:styles.transformOrigin}}
     >
-      
       <div>
-        <div className="PreviewContainer-PosterContainer" style={{height:styles.height,width:styles.width}}>
-          <img src={currentHovered.imgUrl} style={{opacity:isPlaying?"0":"1"}}></img>
-          <ReactPlayer
-            wrapper="div"
-            url={`https://www.youtube.com/watch?v=${movieVideoUrl}`}
-            playing={true}
-            muted={true}
-            controls={false}
-            height="100%"
-            width="100%"
-            onPlay={()=>setPlaying(p=>true)}
-            style={{ position: `relative` }}
-            />
-        </div>
+        <PreviewPoster isHovered={isHovered} setPlaying={setPlaying} isPlaying={isPlaying} dimensions={{height:styles.height,width:styles.width}} currentHovered={currentHovered}/>
         <div className="PreviewContainer-HiddenContainer">
           <div className="HiddenContainer-ActionButtons">
-            <div className="ActionButtons-Button">
-              <Play/>
+            <div className="ActionButtons Left">
+              <div className="ActionButtons-Button ActionButtons-Play">
+                <Play/>
+              </div>
+              <div className="ActionButtons-Button">
+                <Tick/>
+              </div>
+              <div className="ActionButtons-Button">
+                <Thumb/>
+              </div>
+              <div className="ActionButtons-Button Reversed">
+                <Thumb/>
+              </div>
             </div>
+            <div className="ActionButtons Right">
+              <div className="ActionButtons-Button">
+                <Arrow/>
+              </div>
           </div>
-          {details?<div>{details.runtime}</div>:null}
+          </div>
+          {details?
+          <>
+          <div className="HiddenContainer-Info">
+            <span className="Info-VoteAverage">{`${details.vote*10}% Match`}</span>
+            <span className="Info-AgeRating">{details.adult?"18+":"13+"}</span>
+            <span className="Info-Runtime">{`${details.runtime}`}</span>
+          </div>
+          
+          <div className="HiddenContainer-Genres">
+            {details.genres.map((item)=><span className="Genres-Item">{item}</span>)}
+          </div>
+          </>
+          :null}
         </div>
       </div>  
     </div>

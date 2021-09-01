@@ -40,6 +40,7 @@ export default function BrowserMainSectionMovie({url,id,isSliding,debouncedHandl
     useEffect(() => {
       window.addEventListener("resize", debouncedHandleResize, false);
       searchBounding();
+      return ()=>window.removeEventListener("resize",debouncedHandleResize)
 
   }, [dimensions]);
   useEffect(()=>{

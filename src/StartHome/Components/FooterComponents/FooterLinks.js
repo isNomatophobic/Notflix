@@ -49,7 +49,7 @@ function FooterLinks() {
           <a className="footerLink">Netflix Originals</a>
         </li>
       </ul>
-      <p className="regionNetflix">Netflix Bulgaria</p>
+      <p className="regionNetflix">Notflix Bulgaria</p>
     </div>
   );
 }

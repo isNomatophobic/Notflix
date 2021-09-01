@@ -25,11 +25,9 @@ export default function BrowseMainSections({
     const url = `https://api.themoviedb.org/3/movie/${keyword}?api_key=${process.env.REACT_APP_API_KEY}`;
     const response = await axios.get(url);
     const movies = response.data.results;
-    console.log("Logged Output:: fetchMovies -> movies", movies);
 
     const jsxArray = movies.map((movie, i = 0) => {
       const url = base_url + "original" + movie.backdrop_path;
-      console.log(url);
       return (
         <BrowseMainSectionMovie
           hasSlided={hasSlided}

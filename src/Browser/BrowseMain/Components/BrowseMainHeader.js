@@ -1,14 +1,13 @@
 import {useState,useRef,useEffect} from "react"
 import axios from "axios"
-import {useLocation,useHistory} from "react-router-dom"
+import {useHistory} from "react-router-dom"
 import {ReactComponent as Play} from "assets/play.svg"
 import {ReactComponent as MoreInfo} from "assets/moreInfo.svg"
-import {ReactComponent as Logo} from "assets/logo.svg"
-import {ReactComponent as Search} from "assets/search2.svg"
-import {ReactComponent as Bell} from "assets/bell.svg"
+
 import {ReactComponent as Unmuted} from "assets/unmuted.svg"
 import {ReactComponent as Muted} from "assets/muted.svg"
 import {ReactComponent as Reload} from "assets/reload.svg"
+import BrowseMainNavbar from "./HeaderComponents/BrowseMainNavbar"
 import { findAllByTestId } from "@testing-library/react"
 import ReactPlayer from 'react-player/lazy'
 import getRandomInt from "Helpers/getRandomInt"
@@ -17,10 +16,6 @@ const YouTubeToHtml5 = require('@thelevicole/youtube-to-html5-loader');
 
     export default function BrowseMainHeader({accounts,setLoading,currentUser,setCurrentUser}) {
     
-    //Iframe embed youtube videos.
-    const history = useHistory()
-
-    // https://api.themoviedb.org/3/movie/530/videos?api_key=14d5c7095470aa2419f8fe81ccf75f43
 
     const headerVideoRef = useRef(null)
     const [headerVideo,setHeaderVideo] = useState(null)
@@ -38,18 +33,6 @@ const YouTubeToHtml5 = require('@thelevicole/youtube-to-html5-loader');
         title:"",
         overview:"",
         adult:false
-    })
-    const changeUser = async (accountName,accountImage)=>{
-        setLoading(true)
-        setCurrentUser({
-            userName:accountName,
-            userImage:accountImage
-        })                                                                                                                         
-
-    }
-    const arrayAccounts = accounts.map((account)=>{
-        if(account.accountImage!==currentUser.userImage)
-        return <li onClick={()=>changeUser(account.accountName,account.accountImage)}><img src={`/Images/profileImages/${account.accountImage}.png`}></img><p>{account.accountName}</p></li>
     })
 
     const imgHide = async(e)=>{
@@ -133,11 +116,6 @@ const YouTubeToHtml5 = require('@thelevicole/youtube-to-html5-loader');
         const urlImages=base_url+"original"+backdrop_path
         setHeaderImage(urlImages)
     }  
-    const logout = ()=>{
-        sessionStorage.clear();
-        history.push({
-            pathname:'/login'});
-    }
     useEffect(()=>{
         try{
                 getHeaderInfo()
@@ -159,36 +137,7 @@ const YouTubeToHtml5 = require('@thelevicole/youtube-to-html5-loader');
         <div className="browseMain-filler1"  style={{opacity:isPlaying?"0":"1"}}>
         </div>
     </div>
-    <div className="browseMain-navbarContainer">
-        <Logo onClick={()=>history.push({pathname:"/browse",state:{currentImage:currentUser.userImage}})}/>
-        <div className="browseMain-navbarUtilities">
-            <div className="searchContainer iconContainer"><Search/></div>
-            <div className="bellContainer iconContainer">
-                <Bell className="bell"/>
-                <span className="triangle"></span>
-                <div className="recentNotifications">
-                    <p>No recent notifications</p>
-                </div>
-            </div>
-            <div className="accountMenu" >
-                <div className="imgContainer">
-                    <img src={`/Images/profileImages/${currentUser.userImage}.png`}></img>
-                </div>
-                <span className="triangleMenu"></span>
-                <span className="triangleMenu triangleDropDown"></span>
-                <div className="accountMenu-dropDown">
-                    <ul style={{listStyle:'none'}}>
-                        {arrayAccounts}
-                        <li><p onClick={()=>history.push({pathname:"/browse/manage",state:{currentImage:currentUser.userImage}})}>Manage profiles</p></li>
-                    </ul>
-                    <ul style={{listStyle:'none'}}>
-                        <li><p onClick={logout}>Sign out of Netflix</p></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        </div>
+    <BrowseMainNavbar setCurrentUser={setCurrentUser} currentUser={currentUser} accounts={accounts} setLoading={setLoading}/>
         <div className="browserMain-infoContainer">
             <div>
                 <div className="browserMain-info"> 

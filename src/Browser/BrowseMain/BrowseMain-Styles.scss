@@ -1,5 +1,6 @@
 .browseMain{
     background-color: darken($color: (#141414), $amount: 2.5%);
+    overflow-y: hidden;
     *{
         user-select: none;
     }
@@ -174,8 +175,9 @@
 
 
 .browseMain-navbarContainer{
-    position: absolute;
-    top:0;
+    position: fixed;
+    transition: all 0.5s ease-out;
+    top:0%;
     width: 100%;
     z-index: 4;
     height: 70px;
@@ -189,6 +191,9 @@
         min-width: 45px;
         cursor: pointer;
     }
+}
+.offSet{
+    background-color: rgb(20, 20, 20);
 }
 .browseMain-navbarUtilities{
     display: flex;
@@ -530,8 +535,8 @@
     flex-direction: column;
     background-color: transparent;
     position: relative;
-    z-index: 10;
-    background: linear-gradient(0deg, rgba(0,0,0,0.9) 70%, rgba(0,0,0,0) 100%);
+    z-index: 3;
+    background: linear-gradient(0deg, rgba(#141414,0.9) 70%, rgba(#141414,0) 100%);
 }
 .browseMain-Section{
     width: 100%;
@@ -648,8 +653,9 @@
     
 
 }
+
 .grow{
-    transform:scale(1.7) !important;
+    transform:scaleX(1.5) scaleY(1.7) !important;
 
 }
 .browseMain-PreviewContainer{
@@ -658,30 +664,53 @@
     overflow: hidden;
     transition: transform 0.3s;
     transform: scale(1.0);
+    border-radius: 4px;
     cursor: pointer;
     .PreviewContainer-PosterContainer{
         border-radius: 4px;
         position: relative;
     }
     img{
-        border-radius: 4px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+
         width: 100%;
         height: 100%;
         position: absolute;
-        z-index: 1;
+        z-index: 0;
+    }
+    .player{
         transition: opacity 0.3s ease-out;
-        opacity: 1;
     }
     iframe{
-        border-radius: 4px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
         position: absolute;
         top: 50%;
         left: 50%;
         width: 100%;
         height: 85vh;
         pointer-events: none;
-        z-index: 0;
+        z-index: 1;
         transform: translate(-50%, -50%);
+    }
+    .soundControl{
+        opacity: 0.6;
+        position: absolute;
+        z-index: 2;
+        bottom:5%;
+        right:4%;
+        fill:white;
+        transition: opacity 0.5s ease-out;
+
+        &:hover{
+            opacity: 1;
+
+        }
+        svg{
+            width: 65%;
+            height: 65%;
+        }
     }
 }
 .PreviewContainer-HiddenContainer{
@@ -691,25 +720,90 @@
     position: relative;
     height: 60%;
     z-index: 3;
-    padding:1vw;
+    padding:10px 0.8vw;
+    >div{
+        margin-bottom: 7px;
+    }
     .HiddenContainer-ActionButtons{
         display: flex;
         width: 100%;
+        justify-content: space-between;
     }
-    .ActionButtons-Button{
-        width: 2.7vw;
-        height: 2.7vw;
-        border-radius: 50%;
-        background:rgba(white,1);
-        position: relative;
+    .Reversed{
+        transform: rotateZ(180deg);
     }
+    .ActionButtons{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .Right{
+        svg{
+            transform: rotate(90deg);
+            width: 30%;
+            margin-right: -2.4px;
+        }
+    }
+    .ActionButtons-Play{
+        background-color: white;
+        fill:black;
+    }
+
     svg{
-        width: 70%;
+        width: 65%;
         z-index: 3;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    }
+    .HiddenContainer-Info{
+        width: 100%;
+        font-size: 10px;
+        font-weight: 600;
+    }
+    span{
+        margin-right: 6px;
+    }
+    .Info-VoteAverage{
+        color: #46D369;
+    }
+    .Info-AgeRating{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:0 0.4vw;
+        display: inline-block;
+        border:solid 1px rgba(255,255,255,.4);;
+
+    }
+    .HiddenContainer-Genres{
+        font-size: 10px;
+        font-weight: 600;
+        span:not(:first-of-type):before{
+            color: #646464;
+            content: "\2022";
+            display: inline-block;
+            padding-right: .5vw;
+            font-size: 15px;
+
+        }
+    }
+}
+.ActionButtons-Button{
+    margin-right: 5px;
+    width: 2vw;
+    height: 2vw;
+    min-width: 12px;
+    min-height: 12px;
+    max-width: 25px;
+    max-height: 25px;   
+    border-radius: 50%;
+    position: relative;
+    background-color: #2A2A2A;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        border: 1px solid rgba(255, 255, 255, 1);
     }
 }
 @media (min-width:1100px)
@@ -744,6 +838,15 @@
     .section-MovieContainer{
         width: 16.66%;
     }
+    }
+    .PreviewContainer-HiddenContainer{
+        .HiddenContainer-Info{
+            font-size: 12px;
+        }
+        .HiddenContainer-Genres{
+            font-size: 12px;
+        }
+        
     }
 }
 
@@ -803,6 +906,14 @@
     .browseMain-Section{
         h2{
             font-size: 12px;
+        }
+    }
+    .PreviewContainer-HiddenContainer{
+        .HiddenContainer-Info{
+            font-size: 8px;
+        }
+        .HiddenContainer-Genres{
+            font-size: 8px;
         }
     }
 

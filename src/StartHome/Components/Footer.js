@@ -1,7 +1,7 @@
 import FooterLinks from "./FooterComponents/FooterLinks";
-function Footer() {
+function Footer({bgColor}) {
   return (
-    <div className="footer-container">
+    <div className="footer-container" style={{backgroundColor:bgColor}}>
       <FooterLinks />
     </div>
   );

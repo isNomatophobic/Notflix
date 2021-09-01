@@ -21,10 +21,6 @@ function Browse() {
       const url = "https://netlixclone-backend.herokuapp.com/login/accounts";
       const res = await axios.get(url, { params });
       var acc = res.data;
-      acc.push({
-        accountImage: "156 - p19PL8P",
-        accountName: "Kids",
-      });
       setAccounts(acc);
       setLoading(false);
     } catch (error) {
