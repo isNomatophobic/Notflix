@@ -1084,6 +1084,86 @@
   border: 1px solid white;
 }
 
+.browse-WatchContainer {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.browse-WatchContainer .player {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.browse-WatchContainer iframe {
+  pointer-events: none;
+}
+
+.WatchContainer-ControlsContainer {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+
+.ControlsContainer-TimeControl {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.ControlsContainer-TimeControl .TimeControl-BarContainer {
+  width: 90%;
+  height: 6px;
+  background-color: #676767;
+  position: relative;
+  cursor: pointer;
+}
+
+.ControlsContainer-TimeControl .BarContainer-BufferedTime {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 2;
+}
+
+.ControlsContainer-TimeControl .BarContainer-PlayedTime {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  min-height: 100%;
+  background-color: #E50914;
+  z-index: 3;
+}
+
+.ControlsContainer-TimeControl .BarContainer-Thumb {
+  width: 25px;
+  height: 25px;
+  background-color: #E50914;
+  border-radius: 50%;
+  top: -150%;
+  position: absolute;
+  z-index: 4;
+}
+
+.ControlsContainer-TimeControl label {
+  color: white;
+  font-weight: 600;
+  font-size: 2vw;
+}
+
 @media (min-width: 1100px) {
   .browseMain-headerContainer {
     height: 80vh;

@@ -14,11 +14,13 @@ import { ReactComponent as Arrow } from "assets/arrow.svg";
 
 
 
-export default function BrowseMainPreview({url,id,currentHovered,setCurrentHovered,isSliding}) {
+export default function BrowseMainPreview({url,id,currentHovered,setCurrentHovered,isSliding,history}) {
   const [isPlaying, setPlaying] = useState(false);
   const [styles, setStyles] = useState({});
   const [isHovered,setHovered]= useState(false)
   const details = useRememberDetails(currentHovered.id)
+  const movieVideoUrl = useRememberVideo(currentHovered.id)
+
   const remove = async () => {
     setHovered(p=>false)
     await sleep(300)
@@ -32,6 +34,14 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
     };
     setStyles((p) => styles);
   };
+  const pushMovie = ()=>{
+    if(movieVideoUrl)
+    history.push({
+      pathname:'/browse/watch',
+      state:{movieVideoUrl:movieVideoUrl}
+    })
+  }
+  
   useEffect(() => {
     console.log(currentHovered);
     setPlaying(p=>false)
@@ -59,11 +69,11 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
       style={{top:styles.top,left:styles.left,display:styles.display,transformOrigin:styles.transformOrigin}}
     >
       <div>
-        <PreviewPoster isHovered={isHovered} setPlaying={setPlaying} isPlaying={isPlaying} dimensions={{height:styles.height,width:styles.width}} currentHovered={currentHovered}/>
+        <PreviewPoster movieVideoUrl={movieVideoUrl} isHovered={isHovered} setPlaying={setPlaying} isPlaying={isPlaying} dimensions={{height:styles.height,width:styles.width}} currentHovered={currentHovered}/>
         <div className="PreviewContainer-HiddenContainer">
           <div className="HiddenContainer-ActionButtons">
             <div className="ActionButtons Left">
-              <div className="ActionButtons-Button ActionButtons-Play">
+              <div className="ActionButtons-Button ActionButtons-Play" onClick={pushMovie}>
                 <Play/>
               </div>
               <div className="ActionButtons-Button">

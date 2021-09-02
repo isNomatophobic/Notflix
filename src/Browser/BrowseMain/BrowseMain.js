@@ -9,8 +9,8 @@ import axios from "axios";
 
 console.log(new Error().stack);
 function BrowseMain({ accounts }) {
+  const history = useHistory()
   const location = useLocation();
-  console.log(location.state);
   const currentImage = location.state
     ? location.state.currentImage
     : "107 - LJ9dB0T";
@@ -61,6 +61,7 @@ function BrowseMain({ accounts }) {
           <BrowseMainPreview
             isSliding={isSliding}
             currentHovered={currentHovered}
+            history={history}
           />
           <Footer bgColor="#141414"/>
         </div>

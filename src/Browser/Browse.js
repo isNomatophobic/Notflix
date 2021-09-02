@@ -2,12 +2,15 @@ import BrowseAccounts from "./BrowseAccounts/BrowseAccounts";
 import ManageAccounts from "./BrowseAccounts/ManageAccounts";
 import CreateProfile from "./BrowseAccounts/CreateProfile";
 import { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route,useHistory } from "react-router-dom";
 import axios from "axios";
 import ManageProfile from "./BrowseAccounts/ManageProfile";
 import BrowseMain from "./BrowseMain/BrowseMain";
+import Watch from "./Watch/Watch"
 
 function Browse() {
+  const history = useHistory();
+
   const userEmail = sessionStorage.getItem("userEmail");
 
   const [isLoading, setLoading] = useState(true);
@@ -52,7 +55,9 @@ function Browse() {
           <ManageProfile accounts={accounts} setAccounts={setAccounts} />
         )}
       </Route>
+      <Route path={`/browse/watch`} >{isLoading ? <></> : <Watch history={history}/>}</Route>
       <Route>{isLoading ? <></> : <BrowseMain accounts={accounts} />}</Route>
+
     </Switch>
   );
 }

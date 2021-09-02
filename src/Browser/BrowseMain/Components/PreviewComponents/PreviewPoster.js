@@ -6,8 +6,7 @@ import useRememberVideo from "Hooks/useRememberVideo"
 import {ReactComponent as Unmuted} from "assets/unmuted.svg"
 import {ReactComponent as Muted} from "assets/muted.svg"
 
-export default function PreviewPoster({isHovered,dimensions,currentHovered,isPlaying,setPlaying}) {
-    const movieVideoUrl = useRememberVideo(currentHovered.id)
+export default function PreviewPoster({movieVideoUrl,isHovered,dimensions,currentHovered,isPlaying,setPlaying}) {
     const [currentPlay,setCurrentPlay] = useState(false)
     const[isReady,setReady] = useState(false)
     const[isMuted,setMuted] = useState(true)
