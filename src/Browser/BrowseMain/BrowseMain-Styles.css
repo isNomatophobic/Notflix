@@ -1111,13 +1111,14 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
 }
 
 .ControlsContainer-TimeControl .TimeControl-BarContainer {
@@ -1162,6 +1163,107 @@
   color: white;
   font-weight: 600;
   font-size: 2vw;
+}
+
+.ControlsContainer-Actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100px;
+  padding: 0px 2%;
+}
+
+.ControlsContainer-Actions > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ControlsContainer-Actions svg {
+  width: 42px;
+  height: 42px;
+  fill: white;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.ControlsContainer-Actions svg:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
+
+.ControlsContainer-Actions svg tspan {
+  font-weight: 600;
+}
+
+.ControlsContainer-Actions .ControlsContainer-VolumeControl {
+  position: relative;
+}
+
+.ControlsContainer-Actions .ControlsContainer-VolumeControl .VolumeControl-VolumeBar {
+  width: 30px;
+  height: 175px;
+  background-color: #272727;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 4;
+}
+
+.ControlsContainer-Actions .ControlsContainer-VolumeControl .VolumeBar-Inside {
+  position: relative;
+  background-color: #5a5a5a;
+  width: 35%;
+  height: 75%;
+  cursor: pointer;
+}
+
+.ControlsContainer-Actions .ControlsContainer-VolumeControl .VolumeBar-Thumb {
+  background-color: #E50914;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 20%);
+          transform: translate(-50%, 20%);
+}
+
+.ControlsContainer-Actions .ControlsContainer-VolumeControl .VolumeBar-Progress {
+  position: absolute;
+  width: 100%;
+  background-color: #E50914;
+  bottom: 0;
+}
+
+.ControlsContainer-Actions .ControlsContainer-VolumeControl svg {
+  margin: 10px 0px;
 }
 
 @media (min-width: 1100px) {

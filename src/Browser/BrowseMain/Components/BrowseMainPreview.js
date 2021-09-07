@@ -68,8 +68,10 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
       onMouseLeave={remove}
       style={{top:styles.top,left:styles.left,display:styles.display,transformOrigin:styles.transformOrigin}}
     >
+      
       <div>
         <PreviewPoster movieVideoUrl={movieVideoUrl} isHovered={isHovered} setPlaying={setPlaying} isPlaying={isPlaying} dimensions={{height:styles.height,width:styles.width}} currentHovered={currentHovered}/>
+        {isHovered?
         <div className="PreviewContainer-HiddenContainer">
           <div className="HiddenContainer-ActionButtons">
             <div className="ActionButtons Left">
@@ -92,7 +94,7 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
               </div>
           </div>
           </div>
-          {details?
+          {details&&isHovered?
           <>
           <div className="HiddenContainer-Info">
             <span className="Info-VoteAverage">{`${details.vote*10}% Match`}</span>
@@ -106,6 +108,7 @@ export default function BrowseMainPreview({url,id,currentHovered,setCurrentHover
           </>
           :null}
         </div>
+        :null}
       </div>  
     </div>
   );
