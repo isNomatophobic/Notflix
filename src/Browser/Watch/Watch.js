@@ -1,4 +1,5 @@
 import ReactPlayer from 'react-player/lazy'
+import screenfull from "screenfull"
 import {useEffect, useRef, useState} from "react"
 import {useLocation} from "react-router-dom"
 import { BrowserRouter as  useHistory } from "react-router-dom";
@@ -6,7 +7,10 @@ import {ReactComponent as Play} from "assets/play.svg"
 import {ReactComponent as Pause} from "assets/pause.svg"
 import {ReactComponent as Back10} from "assets/back10.svg"
 import {ReactComponent as Forward10} from "assets/forward10.svg"
+import {ReactComponent as Fullscreen} from "assets/fullscreen.svg"
 import VolumeControl from "./VolumeControl"
+import Velocimeter from "./Velocimeter"
+
 const secondsToMinutes = (s)=>{
     if(!seconds>=60) return `${s}`
     var minutes = Math.floor(s / 60);
@@ -23,6 +27,7 @@ export default function Watch({history}) {
 
     const[isPlaying,setPlaying] = useState(true)
     const[isMuted,setMuted] = useState(false)
+    const[isFullscreen,setIsFullscreen] = useState(false)
     const[playbackRate,setPlaybackRate]= useState(1)
     const[loaded,setLoaded] = useState(0)
     const[progress,setProgress] = useState({
@@ -34,6 +39,12 @@ export default function Watch({history}) {
     const [mousedown,setMousedown] = useState(false)
     const [mousedownVolume,setMousedownVolume] = useState(false)
 
+
+    const requestFullScreen= ()=>{
+        if(!isFullscreen) screenfull.request()
+        else screenfull.exit()
+        setIsFullscreen(p=>!p) 
+    }
     //Refactor
     //Well start by using prettier, 
     //ditch the ternaries, use variables for things like +10 and -10, 
@@ -95,7 +106,7 @@ export default function Watch({history}) {
         setVolume(p=>percentage > 0? percentage : 0)
         
     }
-    console.log(`volume:${volume}`);
+    
     return (
         <div className="browse-WatchContainer" onMouseMove={(e)=>{jumpTo(e);changeVolume(e)}} onMouseUp={()=>{setMousedown(p=>false)}}>
           <ReactPlayer
@@ -124,13 +135,14 @@ export default function Watch({history}) {
                 <div className="ControlsContainer-Actions">
                     <div className="ControlsContainer-Left">
                         {isPlaying?<Pause onClick={()=>{setPlaying(p=>false)}}/>:<Play onClick={()=>{setPlaying(p=>true)}}/>}
-                        <Back10 onClick={(e)=>jumpTo(e,'-10')}/>
+                        <Back10 onClick={(e)=>jumpTo(e,'-10')} onMouseDown={requestFullScreen}/>
                         <Forward10 onClick={(e)=>jumpTo(e,'+10')}/>
                         <VolumeControl setMousedownVolume={setMousedownVolume} changeVolume={changeVolume} volumeRef={volumeRef} setHideProgress={setHideProgress} volume={volume} setVolume={setVolume}/>
                         
                     </div>
                     <div className="ControlsContainer-Right">
-
+                    <Velocimeter setHideProgress={setHideProgress} setPlaybackRate={setPlaybackRate}/>
+                    <Fullscreen onClick={requestFullScreen}/>
                     </div>
                 </div>
             </div>

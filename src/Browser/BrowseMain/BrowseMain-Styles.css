@@ -10,6 +10,10 @@
           user-select: none;
 }
 
+.loadedContent {
+  position: relative;
+}
+
 @-webkit-keyframes fade-in {
   from {
     opacity: 0;
@@ -886,6 +890,18 @@
   left: 0;
 }
 
+.PreviewMain {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.PreviewMain-Dark {
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 .grow {
   -webkit-transform: scaleX(1.5) scaleY(1.7) !important;
           transform: scaleX(1.5) scaleY(1.7) !important;
@@ -895,13 +911,15 @@
   position: absolute;
   z-index: 999;
   overflow: hidden;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
   -webkit-transform: scale(1);
           transform: scale(1);
   border-radius: 4px;
+  min-width: 50px;
+  min-height: 50px;
+  -webkit-transition: 0.3s ease, -webkit-transform;
+  transition: 0.3s ease, -webkit-transform;
+  transition: transform, 0.3s ease;
+  transition: transform, 0.3s ease, -webkit-transform;
   cursor: pointer;
 }
 
@@ -1084,6 +1102,77 @@
   border: 1px solid white;
 }
 
+.PreviewDetailed {
+  -webkit-transition-property: min-width,top,-webkit-transform;
+  transition-property: min-width,top,-webkit-transform;
+  transition-property: transform,min-width,top;
+  transition-property: transform,min-width,top,-webkit-transform;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+  min-width: 918.9px;
+  top: 145px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+.PreviewDetailed .PreviewContainer-PosterContainer {
+  height: 40vh;
+}
+
+.PreviewDetailed .posterBackground {
+  position: absolute;
+  background: -webkit-gradient(linear, left bottom, left top, from(#181818), color-stop(50%, transparent));
+  background: linear-gradient(to top, #181818, transparent 50%);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.PreviewDetailed .ActionButtons {
+  position: absolute;
+  top: -100%;
+}
+
+.PreviewDetailed .ActionButtons-Button {
+  width: 3vw;
+  height: 3vw;
+  min-width: 30px;
+  min-height: 30px;
+  max-width: 40px;
+  max-height: 40px;
+  margin-right: 10px;
+}
+
+.PreviewDetailed .ActionButtons-Play {
+  width: 180px;
+  height: 50px;
+  background-color: white;
+  border-radius: 4px;
+  color: black;
+  padding: 8px;
+  font-size: 1.8vw;
+  font-weight: 600;
+  max-width: none;
+  max-height: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.PreviewDetailed .ActionButtons-Play svg {
+  width: 30%;
+}
+
 .browse-WatchContainer {
   width: 100%;
   height: 100vh;
@@ -1264,6 +1353,119 @@
 
 .ControlsContainer-Actions .ControlsContainer-VolumeControl svg {
   margin: 10px 0px;
+}
+
+.ControlsContainer-Actions .VelocimeterContainer {
+  position: relative;
+}
+
+.ControlsContainer-Actions .Velocimeter {
+  width: 450px;
+  height: 100px;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: translate(-77%, -100%);
+          transform: translate(-77%, -100%);
+  background-color: #272727;
+  padding: 15px 20px;
+  padding-bottom: 0px;
+  color: white;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.ControlsContainer-Actions .Velocimeter h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.ControlsContainer-Actions .Velocimeter .VelocimeterOptions {
+  width: 100%;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ControlsContainer-Actions .Velocimeter .VelocimeterOptions > div {
+  display: inline-block;
+  width: 12.5%;
+}
+
+.ControlsContainer-Actions .Velocimeter .VelocimeterOptions > div .OptionLine {
+  background-color: #cccccc;
+  height: 1px;
+  position: relative;
+}
+
+.ControlsContainer-Actions .Velocimeter .VelocimeterOptions > div .OptionLine:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #cccccc;
+}
+
+.ControlsContainer-Actions .Velocimeter .VelocimeterOptions > div p {
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: #cccccc;
+}
+
+.ControlsContainer-Actions .Velocimeter .VelocimeterOptions > div:not(.Option5):not(.Option1) {
+  width: 25%;
+}
+
+.ControlsContainer-Actions .Velocimeter .VelocimeterOptions > div:not(.Option5):not(.Option1) .OptionLine:after {
+  left: 50%;
+}
+
+.ControlsContainer-Actions .Velocimeter .VelocimeterOptions > div:not(.Option5):not(.Option1) p {
+  text-align: center;
+}
+
+.ControlsContainer-Actions .Velocimeter .VelocimeterOptions .Option5 .OptionLine:after {
+  left: 100%;
+}
+
+.ControlsContainer-Actions .Velocimeter .VelocimeterOptions .Option5 p {
+  text-align: right;
+}
+
+.ControlsContainer-Actions .Velocimeter .VelocimeterOptions .clickedOption .OptionLine:after {
+  background-color: white;
+  width: 15px;
+  height: 15px;
+}
+
+.ControlsContainer-Actions .Velocimeter .VelocimeterOptions .clickedOption p {
+  font-size: 15px;
+  color: white;
 }
 
 @media (min-width: 1100px) {

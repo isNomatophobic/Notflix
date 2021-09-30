@@ -6,11 +6,10 @@ import useRememberVideo from "Hooks/useRememberVideo"
 import {ReactComponent as Unmuted} from "assets/unmuted.svg"
 import {ReactComponent as Muted} from "assets/muted.svg"
 
-export default function PreviewPoster({movieVideoUrl,isHovered,dimensions,currentHovered,isPlaying,setPlaying}) {
+export default function PreviewPoster({isDetailed,movieVideoUrl,isHovered,dimensions,currentHovered,isPlaying,setPlaying}) {
     const [currentPlay,setCurrentPlay] = useState(false)
     const[isReady,setReady] = useState(false)
     const[isMuted,setMuted] = useState(true)
-    //Fix the god dammn motherfucking player
     const checkProgress = ({playedSeconds})=>{
         if(playedSeconds)
             setReady(p=>true)
@@ -25,9 +24,9 @@ export default function PreviewPoster({movieVideoUrl,isHovered,dimensions,curren
         else {setCurrentPlay(p=>true);}
     },[isHovered])
     return (
-            <div className="PreviewContainer-PosterContainer" style={{height:dimensions.height,width:dimensions.width}}>
+            <div className="PreviewContainer-PosterContainer" style={{minHeight:dimensions.height,minWidth:dimensions.width}}>
                 <img src={currentHovered.imgUrl}></img>
-                {isHovered?
+                {isHovered||isDetailed?
                 <ReactPlayer
                     className="player"
                     style={{opacity:(currentPlay&&isReady)?"1":"0"}}
@@ -49,6 +48,7 @@ export default function PreviewPoster({movieVideoUrl,isHovered,dimensions,curren
                     <Muted onClick={()=>setMuted(p=>false)}/>:
                     <Unmuted onClick={()=>setMuted(p=>true)}/>}
                 </div>
+                {isDetailed? <div className="posterBackground"></div> : null}
             </div>
     )
 }
